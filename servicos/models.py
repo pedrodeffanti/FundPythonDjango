@@ -13,6 +13,10 @@ class ClienteModels(models.Model):
     def __str__(self):
         return str(self.nome)
 
+    class Meta:
+        verbose_name = 'Cliente'
+        verbose_name_plural = 'Clientes'
+
 
 class ModeloModels(models.Model):
     MATERIAL_CHOICE = [
@@ -37,7 +41,7 @@ class ModeloModels(models.Model):
         (2, 'Não'),
     ]
 
-    nome = models.ForeignKey(ClienteModels, on_delete=models.CASCADE)
+    nome = models.ForeignKey(ClienteModels, verbose_name='Cliente', on_delete=models.CASCADE)
     numero = models.CharField('Número do Modelo', max_length=20)
     material = models.IntegerField(verbose_name='Material do Modelo', choices=MATERIAL_CHOICE)
     reforma = models.IntegerField(verbose_name='Reformar Modelo?', choices=REFORMA_CHOICE)
