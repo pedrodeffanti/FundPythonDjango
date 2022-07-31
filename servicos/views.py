@@ -37,8 +37,3 @@ def ModeloViews(request):
             'form': form
         }
         return render(request, 'modelo.html', context=context)
-
-
-
-def index(request):
-    return render(request, 'index.html')
